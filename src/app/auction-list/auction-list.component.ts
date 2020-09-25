@@ -7,10 +7,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AuctionListComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    this.titleClicked = new EventEmitter<string>()
+  }
 
   @Input() headerTitle: string;
-  @Output() titleClicked = new EventEmitter<string>();
+  @Output() titleClicked: EventEmitter<string>;
+
+  auctions = [
+    {title: 'bike'},
+    {title: 'iPhone'},
+    {title: 'watch'},
+    {title: 'table'},
+    {title: 'boat'}
+    ];
 
   ngOnInit(): void {
   }
