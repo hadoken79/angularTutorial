@@ -8,6 +8,7 @@ import { AuctionDataService } from '../shared/auction-data.service';
   templateUrl: './auction-list.component.html',
   styleUrls: ['./auction-list.component.scss']
 })
+
 export class AuctionListComponent implements OnInit {
 
   constructor(private auctionDataService: AuctionDataService) {
@@ -15,7 +16,7 @@ export class AuctionListComponent implements OnInit {
   }
 
   @Input() headerTitle: string;
-  @Output() titleClicked: EventEmitter<string>;
+  @Output() titleClicked = new EventEmitter<string>();
 
   auctions: Auction[];
 
