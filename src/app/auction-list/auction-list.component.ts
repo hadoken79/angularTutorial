@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { AUCTION_DATA } from '../shared/auction-data';
 import { Auction } from '../shared/auction';
+import { AuctionDataService } from '../shared/auction-data.service';
 
 @Component({
   selector: 'app-auction-list',
@@ -9,14 +10,14 @@ import { Auction } from '../shared/auction';
 })
 export class AuctionListComponent implements OnInit {
 
-  constructor() { 
-    this.titleClicked = new EventEmitter<string>()
+  constructor(private auctionDataService: AuctionDataService) {
+    this.auctions = auctionDataService.getAuctions();
   }
 
   @Input() headerTitle: string;
   @Output() titleClicked: EventEmitter<string>;
 
-  auctions: Auction[] = AUCTION_DATA;
+  auctions: Auction[];
 
   ngOnInit(): void {
   }
