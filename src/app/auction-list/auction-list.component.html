@@ -2,7 +2,7 @@
 <h3 (click)="onTitleClicked($event)">{{headerTitle}}</h3>
 <div *ngFor="let auction of auctions; let isOdd=odd; ">
   <div>
-    <p [class.highlight]="isOdd">{{auction.title}}</p>
+    <p [class.highlight]="isOdd">{{auction.auctionItem.title}}</p>
   </div>
 </div>
 

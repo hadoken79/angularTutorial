@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { AUCTION_DATA } from '../shared/auction-data';
+import { Auction } from '../shared/auction';
 
 @Component({
   selector: 'app-auction-list',
@@ -14,13 +16,7 @@ export class AuctionListComponent implements OnInit {
   @Input() headerTitle: string;
   @Output() titleClicked: EventEmitter<string>;
 
-  auctions = [
-    {title: 'bike'},
-    {title: 'iPhone'},
-    {title: 'watch'},
-    {title: 'table'},
-    {title: 'boat'}
-    ];
+  auctions: Auction[] = AUCTION_DATA;
 
   ngOnInit(): void {
   }
