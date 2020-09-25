@@ -1,6 +1,3 @@
 <p>app works!</p>
-
-
-<app-auction-list [headerTitle]="auctionListTitle"></app-auction-list>
-
-<router-outlet></router-outlet>
+<app-auction-list (titleClicked)="onAuctionListTitleClicked($event)" [headerTitle]="auctionListTitle">
+</app-auction-list>
