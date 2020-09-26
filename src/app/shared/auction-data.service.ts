@@ -10,9 +10,9 @@ import {Observable, of} from 'rxjs';
 export class AuctionDataService {
 
   private auctions: Auction[] = AUCTION_DATA;
+  private URL = 'http://localhost:4730/auctions';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   public getAuctions() {
     return this.auctions;
@@ -20,5 +20,9 @@ export class AuctionDataService {
 
   getObservableAuctions(): Observable<Auction[]> {
     return of(this.auctions);
+  }
+
+  public getHttpAuctions(): Observable<Array<Auction>> {
+    return this.httpClient.get<Array<Auction>>(this.URL);
   }
 }
