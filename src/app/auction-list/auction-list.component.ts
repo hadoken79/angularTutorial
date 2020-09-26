@@ -19,11 +19,16 @@ export class AuctionListComponent implements OnInit {
 
   constructor(private auctionDataService: AuctionDataService) {
     // this.auctions = auctionDataService.getAuctions();
-    this.auctionsObservable = auctionDataService.getObservableAuctions();
-    this.auctionSubscription = this.auctionsObservable.subscribe(data => this.auctions = data);
+   
   }
 
   ngOnInit() {
+    this.auctionsObservable = this.auctionDataService.getObservableAuctions();
+    this.auctionSubscription = this.auctionsObservable.subscribe(data => this.auctions = data);
+  }
+
+  ngOnDestroy(){
+    this.auctionSubscription.unsubscribe();
   }
 
   onTitleClicked(event: MouseEvent): void {
